@@ -1,6 +1,5 @@
 import Piece  from '../Piece/Piece'
 import React  from 'react'
-import { thisExpression } from '@babel/types';
 
 export default class PiecesList extends React.Component {
   constructor(props) {
@@ -42,7 +41,11 @@ export default class PiecesList extends React.Component {
   }
 
   flip (id, piece) {
-    console.log(id, piece, this.state.doubleUp[id])
+    this.setState(prevState => ({
+      doubleUp: prevState.doubleUp.map((piece, index) => {
+        return index === id ? { ...piece, active: !piece.active } : piece 
+      })
+    }))
   }
 
   render() {
