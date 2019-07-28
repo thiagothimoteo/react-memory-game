@@ -1,22 +1,22 @@
 import React from 'react'
 import './Piece.sass'
 
-export default class Piece extends React.Component {
+import { connect }            from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { flipPiece }          from '../../actions';
+
+class Piece extends React.Component {
   constructor (props) {
     super(props)
-    this.handleClick = this.handleClick.bind(this)
-  }
 
-  handleClick() {
-    const id = this.props.id
-    const piece = this.props.piece
+    const { flipPiece, id, piece } = this.props
 
-    this.props.flip(id, piece)
+    this.flipPiece = flipPiece.bind(this, id, piece)
   }
 
   render () {
     return (
-      <div className={`piece ${ this.props.piece.active ? 'is-active' : '' }`} onClick={this.handleClick}>
+      <div className={`piece ${ this.props.piece.active ? 'is-active' : '' }`} onClick={this.flipPiece}>
         <div className="piece-content">
           <div className="piece-content-front" style={{ backgroundColor: this.props.piece.bgColor}}>
           </div>
@@ -28,3 +28,8 @@ export default class Piece extends React.Component {
     )
   }
 }
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ flipPiece }, dispatch)
+
+  export default connect(null, mapDispatchToProps)(Piece)
