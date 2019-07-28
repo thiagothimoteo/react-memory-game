@@ -6,15 +6,11 @@ import { bindActionCreators } from 'redux';
 import { flipPiece }          from '../../actions';
 
 class Piece extends React.Component {
-  constructor (props) {
-    super(props)
-
+  render () {
     const { flipPiece, id, piece } = this.props
 
     this.flipPiece = flipPiece.bind(this, id, piece)
-  }
 
-  render () {
     return (
       <div className={`piece ${ this.props.piece.active ? 'is-active' : '' }`} onClick={this.flipPiece}>
         <div className="piece-content">
@@ -32,4 +28,4 @@ class Piece extends React.Component {
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ flipPiece }, dispatch)
 
-  export default connect(null, mapDispatchToProps)(Piece)
+export default connect(null, mapDispatchToProps)(Piece)
