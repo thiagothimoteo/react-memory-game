@@ -1,29 +1,21 @@
-import generate   from './generate'
-import { pieces } from './config'
+import _generate   from './_generate'
+import { pieces }  from './config'
+import _remove     from './_remove'
+import _reset      from './_reset'
+import _flipPiece  from './_flipPiece'
 
-const initialState = generate(pieces)
+const initialState = _generate(pieces)
 
 export const piecesReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'FLIP_PIECE':
-      return state.map((piece, index) => 
-        index === action.newValue.id 
-          ? { ...piece, status: piece.status !== 'is-active' ? 'is-active' : '' } 
-          : piece)
+      return _flipPiece(state, action.newValue.id)
     
     case 'REMOVE':
-      return state.map(piece =>
-        piece.status === 'is-active'
-          ? { ...piece, status: 'is-removed' }
-          : piece
-      )
+      return _remove(state)
 
     case 'RESET':
-      return state.map(piece =>
-        piece.status === 'is-active'
-          ? { ...piece, status: '' }
-          : piece 
-      )
+      return _reset(state)
 
     default:
       return state;

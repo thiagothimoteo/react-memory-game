@@ -1,4 +1,4 @@
-export default function shuffle(pieces) {
+export default function _shuffle(pieces) {
   for (let i = pieces.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
 

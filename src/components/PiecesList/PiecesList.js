@@ -1,24 +1,27 @@
 import Piece  from '../Piece/Piece'
 import React  from 'react'
 
-import { connect }                  from 'react-redux';
-import { bindActionCreators       } from 'redux';
-import { remove, reset } from '../../actions';
+import { connect }            from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { remove, reset }      from '../../actions';
 
 class PiecesList extends React.Component {
-  compare () {
+  compare (activePieces) {
     const { pieces, remove, reset } = this.props
 
-    const activePieces = pieces.filter(piece => piece.status === 'is-active')
-
-    if (activePieces.length === 2)
-      activePieces[0].bgColor === activePieces[1].bgColor
-        ? remove(activePieces)
-        : setTimeout(() => { reset(this.props.pieces) }, 800)
+    activePieces[0].bgColor === activePieces[1].bgColor
+      ? remove(activePieces)
+      : setTimeout(() => { reset(pieces) }, 800)
   }
 
-  componentDidUpdate () {
-    this.compare()
+  getActivePieces (pieces) {
+    return pieces.filter(piece => piece.status === 'is-active')
+  }
+
+  componentDidUpdate () { 
+    const activePieces  = this.getActivePieces(this.props.pieces)
+
+    if (activePieces.length === 2) this.compare(activePieces)
   }
 
   render() {
