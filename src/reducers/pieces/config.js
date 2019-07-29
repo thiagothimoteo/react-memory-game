@@ -1,26 +1,21 @@
 export const pieces = [
   { bgColor: 'red', 
-    active: false, 
-    removed: false 
+    statu: ''
   },
   { 
     bgColor: 'yellow', 
-    active: false, 
-    removed: false 
+    status: ''
   },
   { 
     bgColor: 'green', 
-    active: false, 
-    removed: false 
+    status: '' 
   },
   { 
     bgColor: 'orange', 
-    active: false, 
-    removed: false 
+    status: '' 
   },
   { 
     bgColor: 'pink', 
-    active: false, 
-    removed: false 
+    status: ''
   }
 ]

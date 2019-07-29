@@ -8,8 +8,22 @@ export const piecesReducer = (state = initialState, action) => {
     case 'FLIP_PIECE':
       return state.map((piece, index) => 
         index === action.newValue.id 
-          ? { ...piece, active: !piece.active } 
+          ? { ...piece, status: piece.status !== 'is-active' ? 'is-active' : '' } 
           : piece)
+    
+    case 'REMOVE':
+      return state.map(piece =>
+        piece.status === 'is-active'
+          ? { ...piece, status: 'is-removed' }
+          : piece
+      )
+
+    case 'RESET':
+      return state.map(piece =>
+        piece.status === 'is-active'
+          ? { ...piece, status: '' }
+          : piece 
+      )
 
     default:
       return state;

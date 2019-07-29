@@ -12,7 +12,7 @@ class Piece extends React.Component {
     this.flipPiece = flipPiece.bind(this, id, piece)
 
     return (
-      <div className={`piece ${ this.props.piece.active ? 'is-active' : '' }`} onClick={this.flipPiece}>
+      <div className={`piece ${ this.props.piece.status } `} onClick={this.flipPiece}>
         <div className="piece-content">
           <div className="piece-content-front" style={{ backgroundColor: this.props.piece.bgColor}}>
           </div>
