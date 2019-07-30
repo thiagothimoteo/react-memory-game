@@ -9,7 +9,7 @@ class PiecesList extends React.Component {
   compare (activePieces) {
     const { pieces, remove, reset } = this.props
 
-    activePieces[0].bgColor === activePieces[1].bgColor
+    activePieces[0].name === activePieces[1].name
       ? remove(activePieces)
       : setTimeout(() => { reset(pieces) }, 800)
   }

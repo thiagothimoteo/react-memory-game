@@ -1,9 +1,9 @@
 import React from 'react'
 import './Piece.sass'
 
-import { connect }            from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { flipPiece }          from '../../actions';
+import { connect }            from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { flipPiece }          from '../../actions'
 
 class Piece extends React.Component {
   render () {
@@ -14,10 +14,9 @@ class Piece extends React.Component {
     return (
       <div className={`piece ${ this.props.piece.status } `} onClick={this.flipPiece}>
         <div className="piece-content">
-          <div className="piece-content-front" style={{ backgroundColor: this.props.piece.bgColor}}>
+          <div className="piece-content-front" style={{ backgroundImage: `url(${this.props.piece.thumbnail})` }}>
           </div>
           <div className="piece-content-back">
-              Back
           </div>
         </div>
       </div>

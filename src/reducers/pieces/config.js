@@ -1,21 +1,56 @@
+import mirage from '../../assets/images/Mirage.jpg'
+import bangalore from '../../assets/images/Bangalore.jpg'
+import octane from '../../assets/images/Octane.jpg'
+import wraith from '../../assets/images/Wraith.jpg'
+import pathfinder from '../../assets/images/Pathfinder.jpg'
+import gibraltar from '../../assets/images/Gibraltar.jpg'
+import caustic from '../../assets/images/Caustic.jpg'
+import lifeline from '../../assets/images/Lifeline.jpg'
+import bloodhound from '../../assets/images/Bloodhound.jpg'
+
 export const pieces = [
-  { bgColor: 'red', 
-    statu: ''
+  { name: 'Mirage', 
+    status: '',
+    thumbnail: mirage
   },
   { 
-    bgColor: 'yellow', 
-    status: ''
+    name: 'Bangalore', 
+    status: '',
+    thumbnail: bangalore
   },
   { 
-    bgColor: 'green', 
-    status: '' 
+    name: 'Octane', 
+    status: '',
+    thumbnail: octane 
   },
   { 
-    bgColor: 'orange', 
-    status: '' 
+    name: 'Caustic', 
+    status: '',
+    thumbnail: caustic 
   },
   { 
-    bgColor: 'pink', 
-    status: ''
+    name: 'Gibraltar', 
+    status: '',
+    thumbnail: gibraltar
+  },
+  {
+    name: 'Lifeline',
+    status: '',
+    thumbnail: lifeline
+  },
+  {
+    name: 'Wraith',
+    status: '',
+    thumbnail: wraith
+  },
+  {
+    name: 'Bloodhound',
+    status: '',
+    thumbnail: bloodhound
+  },
+  {
+    name: 'Pathfinder',
+    status: '',
+    thumbnail: pathfinder
   }
 ]
